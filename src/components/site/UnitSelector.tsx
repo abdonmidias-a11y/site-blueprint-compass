@@ -48,7 +48,7 @@ export function UnitSelectorProvider({ children }: { children: ReactNode }) {
                     </span>
                     <span className="min-w-0 flex-1">
                       <span className="block font-display text-lg font-bold">{u.name}</span>
-                      <span className="block truncate text-xs text-muted-foreground">{unitAddress(u)}</span>
+                      <span className="block text-xs leading-snug text-muted-foreground">{unitAddress(u)}</span>
                     </span>
                     <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-whatsapp text-whatsapp-foreground">
                       <MessageCircle className="h-4 w-4" />
