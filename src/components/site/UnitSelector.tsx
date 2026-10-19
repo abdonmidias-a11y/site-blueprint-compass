@@ -24,16 +24,16 @@ export function UnitSelectorProvider({ children }: { children: ReactNode }) {
     <UnitSelectorContext.Provider value={{ open }}>
       {children}
       <Dialog open={isOpen} onOpenChange={setOpen}>
-        <DialogContent className="max-w-md rounded-3xl p-0 overflow-hidden">
+        <DialogContent className="block max-w-md rounded-3xl p-0 overflow-hidden">
           <div className="h-2 stripes" />
-          <div className="p-6 pt-4">
+          <div className="min-w-0 p-6 pt-4">
             <DialogHeader className="text-left">
               <DialogTitle className="font-display text-2xl">Em qual unidade deseja ser atendido?</DialogTitle>
               <DialogDescription>
                 {service ? `Assunto: ${service}. ` : ""}Você será direcionado ao WhatsApp da unidade escolhida.
               </DialogDescription>
             </DialogHeader>
-            <ul className="mt-5 space-y-3">
+            <ul className="mt-5 grid min-w-0 gap-3">
               {UNITS.map((u) => (
                 <li key={u.id}>
                   <a
@@ -41,7 +41,7 @@ export function UnitSelectorProvider({ children }: { children: ReactNode }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => setOpen(false)}
-                    className="group flex items-center gap-4 rounded-2xl border bg-card p-4 transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-card"
+                    className="group flex w-full min-w-0 items-center gap-4 rounded-2xl border bg-card p-4 transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-card"
                   >
                     <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-accent text-primary">
                       <MapPin className="h-5 w-5" />
