@@ -115,7 +115,7 @@ function Services() {
         </div>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {SERVICES.map((s, idx) => {
-            const Icon = ICONS[s.icon];
+            const Icon = ICONS[s.icon] ?? Car;
             return (
               <Link
                 key={s.slug}
