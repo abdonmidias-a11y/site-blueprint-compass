@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AlunosAprovadosRouteImport } from './routes/alunos-aprovados'
+import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as PoliticaDePrivacidadeRouteImport } from './routes/politica-de-privacidade'
+import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as UnidadesRouteImport } from './routes/unidades'
+import { Route as ServicosIndexRouteImport } from './routes/servicos.index'
+import { Route as ServicosSlugRouteImport } from './routes/servicos.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlunosAprovadosRoute = AlunosAprovadosRouteImport.update({
+  id: '/alunos-aprovados',
+  path: '/alunos-aprovados',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContatoRoute = ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoliticaDePrivacidadeRoute = PoliticaDePrivacidadeRouteImport.update({
+  id: '/politica-de-privacidade',
+  path: '/politica-de-privacidade',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SobreRoute = SobreRouteImport.update({
+  id: '/sobre',
+  path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UnidadesRoute = UnidadesRouteImport.update({
+  id: '/unidades',
+  path: '/unidades',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicosIndexRoute = ServicosIndexRouteImport.update({
+  id: '/servicos/',
+  path: '/servicos/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicosSlugRoute = ServicosSlugRouteImport.update({
+  id: '/servicos/$slug',
+  path: '/servicos/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/alunos-aprovados': typeof AlunosAprovadosRoute
+  '/contato': typeof ContatoRoute
+  '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
+  '/sobre': typeof SobreRoute
+  '/unidades': typeof UnidadesRoute
+  '/servicos/$slug': typeof ServicosSlugRoute
+  '/servicos/': typeof ServicosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/alunos-aprovados': typeof AlunosAprovadosRoute
+  '/contato': typeof ContatoRoute
+  '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
+  '/sobre': typeof SobreRoute
+  '/unidades': typeof UnidadesRoute
+  '/servicos/$slug': typeof ServicosSlugRoute
+  '/servicos': typeof ServicosIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/alunos-aprovados': typeof AlunosAprovadosRoute
+  '/contato': typeof ContatoRoute
+  '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
+  '/sobre': typeof SobreRoute
+  '/unidades': typeof UnidadesRoute
+  '/servicos/$slug': typeof ServicosSlugRoute
+  '/servicos/': typeof ServicosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/alunos-aprovados'
+    | '/contato'
+    | '/politica-de-privacidade'
+    | '/sobre'
+    | '/unidades'
+    | '/servicos/$slug'
+    | '/servicos/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/alunos-aprovados'
+    | '/contato'
+    | '/politica-de-privacidade'
+    | '/sobre'
+    | '/unidades'
+    | '/servicos/$slug'
+    | '/servicos'
+  id:
+    | '__root__'
+    | '/'
+    | '/alunos-aprovados'
+    | '/contato'
+    | '/politica-de-privacidade'
+    | '/sobre'
+    | '/unidades'
+    | '/servicos/$slug'
+    | '/servicos/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AlunosAprovadosRoute: typeof AlunosAprovadosRoute
+  ContatoRoute: typeof ContatoRoute
+  PoliticaDePrivacidadeRoute: typeof PoliticaDePrivacidadeRoute
+  SobreRoute: typeof SobreRoute
+  UnidadesRoute: typeof UnidadesRoute
+  ServicosSlugRoute: typeof ServicosSlugRoute
+  ServicosIndexRoute: typeof ServicosIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/alunos-aprovados': {
+      id: '/alunos-aprovados'
+      path: '/alunos-aprovados'
+      fullPath: '/alunos-aprovados'
+      preLoaderRoute: typeof AlunosAprovadosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contato': {
+      id: '/contato'
+      path: '/contato'
+      fullPath: '/contato'
+      preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politica-de-privacidade': {
+      id: '/politica-de-privacidade'
+      path: '/politica-de-privacidade'
+      fullPath: '/politica-de-privacidade'
+      preLoaderRoute: typeof PoliticaDePrivacidadeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sobre': {
+      id: '/sobre'
+      path: '/sobre'
+      fullPath: '/sobre'
+      preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/unidades': {
+      id: '/unidades'
+      path: '/unidades'
+      fullPath: '/unidades'
+      preLoaderRoute: typeof UnidadesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/servicos/': {
+      id: '/servicos/'
+      path: '/servicos'
+      fullPath: '/servicos/'
+      preLoaderRoute: typeof ServicosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/servicos/$slug': {
+      id: '/servicos/$slug'
+      path: '/servicos/$slug'
+      fullPath: '/servicos/$slug'
+      preLoaderRoute: typeof ServicosSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AlunosAprovadosRoute: AlunosAprovadosRoute,
+  ContatoRoute: ContatoRoute,
+  PoliticaDePrivacidadeRoute: PoliticaDePrivacidadeRoute,
+  SobreRoute: SobreRoute,
+  UnidadesRoute: UnidadesRoute,
+  ServicosSlugRoute: ServicosSlugRoute,
+  ServicosIndexRoute: ServicosIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Business data (units, WhatsApp numbers, services) lives only in src/lib/site-data.ts; components read from it so contact info stays consistent.
+- All general contact buttons call useUnitSelector().open(service?) instead of linking to WhatsApp directly, so unit choice and message format stay centralized.
