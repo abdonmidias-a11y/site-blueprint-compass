@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PlaceholderPage } from "@/components/site/Section";
+import { ContactPage } from "@/components/site/InternalPages";
 
 export const Route = createFileRoute("/contato")({
   head: () => ({
@@ -12,5 +12,5 @@ export const Route = createFileRoute("/contato")({
       { name: "twitter:card", content: "summary" },
     ],
   }),
-  component: () => <PlaceholderPage title="Contato" intro="Fale com a Autoescola Abdon." />,
+  component: ContactPage,
 });

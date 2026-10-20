@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PlaceholderPage } from "@/components/site/Section";
+import { UnitsPage } from "@/components/site/InternalPages";
 
 export const Route = createFileRoute("/unidades")({
   head: () => ({
@@ -12,5 +12,5 @@ export const Route = createFileRoute("/unidades")({
       { name: "twitter:card", content: "summary" },
     ],
   }),
-  component: () => <PlaceholderPage title="Nossas unidades" intro="Endereços, mapas e WhatsApp das três unidades Abdon." />,
+  component: UnitsPage,
 });

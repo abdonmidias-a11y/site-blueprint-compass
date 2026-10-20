@@ -1,5 +1,5 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
-import { PlaceholderPage } from "@/components/site/Section";
+import { ServiceDetail } from "@/components/site/InternalPages";
 import { SERVICES } from "@/lib/site-data";
 
 export const Route = createFileRoute("/servicos/$slug")({
@@ -25,5 +25,5 @@ export const Route = createFileRoute("/servicos/$slug")({
 
 function ServicePage() {
   const { service } = Route.useLoaderData();
-  return <PlaceholderPage title={service.title} intro={service.short} />;
+  return <ServiceDetail service={service} />;
 }
