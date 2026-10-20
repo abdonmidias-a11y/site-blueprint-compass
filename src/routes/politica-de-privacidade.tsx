@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PlaceholderPage } from "@/components/site/Section";
+import { PrivacyPage } from "@/components/site/InternalPages";
 
 export const Route = createFileRoute("/politica-de-privacidade")({
   head: () => ({
@@ -12,5 +12,5 @@ export const Route = createFileRoute("/politica-de-privacidade")({
       { name: "twitter:card", content: "summary" },
     ],
   }),
-  component: () => <PlaceholderPage title="Política de Privacidade" intro="Como a Autoescola Abdon trata seus dados." />,
+  component: PrivacyPage,
 });

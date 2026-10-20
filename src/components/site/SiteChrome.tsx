@@ -16,6 +16,7 @@ export const NAV = [
 ] as const;
 
 export function TopBar() {
+  const { open } = useUnitSelector();
   return (
     <div className="bg-ink text-ink-foreground">
       <div className="container-site flex h-10 items-center gap-6 overflow-x-auto text-xs whitespace-nowrap">
@@ -24,6 +25,7 @@ export function TopBar() {
           <a
             key={u.id}
             href={whatsappUrl(u)}
+            onClick={(event) => { event.preventDefault(); open(); }}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 opacity-85 transition-opacity hover:opacity-100"
@@ -115,6 +117,7 @@ export function FloatingWhatsApp() {
 }
 
 export function Footer() {
+  const { open } = useUnitSelector();
   return (
     <footer className="bg-ink text-ink-foreground">
       <div className="h-2 stripes" />
@@ -150,7 +153,8 @@ export function Footer() {
               <li key={u.id}>
                 <p className="font-semibold">{u.name}</p>
                 <p className="opacity-60">{unitAddress(u)}</p>
-                <a href={whatsappUrl(u)} target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline">
+                <a href={whatsappUrl(u)}
+            onClick={(event) => { event.preventDefault(); open(); }} target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline">
                   WhatsApp {formatPhone(u.whatsapp)}
                 </a>
               </li>

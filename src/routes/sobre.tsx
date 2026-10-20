@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PlaceholderPage } from "@/components/site/Section";
+import { AboutPage } from "@/components/site/InternalPages";
 
 export const Route = createFileRoute("/sobre")({
   head: () => ({
@@ -12,5 +12,5 @@ export const Route = createFileRoute("/sobre")({
       { name: "twitter:card", content: "summary" },
     ],
   }),
-  component: () => <PlaceholderPage title="Sobre a Abdon" intro="Conheça a história e a estrutura da Autoescola Abdon." />,
+  component: AboutPage,
 });

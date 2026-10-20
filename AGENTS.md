@@ -11,3 +11,5 @@
 
 - Business data (units, WhatsApp numbers, services) lives only in src/lib/site-data.ts; components read from it so contact info stays consistent.
 - All general contact buttons call useUnitSelector().open(service?) instead of linking to WhatsApp directly, so unit choice and message format stay centralized.
+
+- Internal content pages share InternalPages.tsx and service details are keyed in site-data.ts to avoid duplicating layouts and business content.

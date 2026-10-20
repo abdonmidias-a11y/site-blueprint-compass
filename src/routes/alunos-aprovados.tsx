@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PlaceholderPage } from "@/components/site/Section";
+import { ApprovedPage } from "@/components/site/InternalPages";
 
 export const Route = createFileRoute("/alunos-aprovados")({
   head: () => ({
@@ -12,5 +12,5 @@ export const Route = createFileRoute("/alunos-aprovados")({
       { name: "twitter:card", content: "summary" },
     ],
   }),
-  component: () => <PlaceholderPage title="Alunos aprovados" intro="Galeria de alunos aprovados da Autoescola Abdon." />,
+  component: ApprovedPage,
 });

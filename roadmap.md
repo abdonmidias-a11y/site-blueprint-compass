@@ -1,5 +1,8 @@
 # Roadmap — Autoescola Abdon
 
 - [x] Etapa 1: identidade visual, cabeçalho, barra de unidades, Home (14 seções), rodapé, seletor de unidades, WhatsApp flutuante
-- [ ] Aprovação da Etapa 1 pelo cliente (aguardando)
-- [ ] Etapa 2+: páginas internas, formulários + banco, painel admin, rastreamento GTM (só após aprovação)
+- [x] Aprovação da Etapa 1 pelo cliente
+- [x] Finalizar páginas de serviços e páginas internas preservando a Home
+- [x] Verificar WhatsApp contextual e navegação desktop/mobile
+- [ ] Integração do formulário: adiada explicitamente para a próxima execução
+- [ ] Painel e GTM: fora do escopo atual

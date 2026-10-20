@@ -44,6 +44,45 @@ export const UNITS: Unit[] = [
 
 export type Service = { slug: string; title: string; short: string; icon: string };
 
+// Neutral draft content. Edit here after Abdon confirms its actual modalities and conditions.
+export const SERVICE_DETAILS: Record<string, { description: string; audience: string; benefits: string[] }> = {
+  "primeira-habilitacao": {
+    description: "A primeira habilitação é o processo para quem ainda não possui CNH. Envolve as etapas exigidas pelo órgão de trânsito para a categoria desejada. Consulte a Abdon para conhecer as opções e receber orientação para começar.",
+    audience: "Quem deseja iniciar o processo de habilitação e entender as etapas para obter a primeira CNH.",
+    benefits: ["Conhecer o caminho até a primeira CNH", "Esclarecer dúvidas sobre a categoria desejada", "Organizar a documentação antes de iniciar"],
+  },
+  "alteracao-de-categoria": {
+    description: "A alteração de categoria é destinada a quem já tem CNH e deseja dirigir veículos de outra categoria. Os requisitos variam conforme a habilitação atual e a categoria pretendida. Consulte a unidade para verificar sua situação.",
+    audience: "Motoristas habilitados que desejam conhecer o processo de mudança de categoria.",
+    benefits: ["Entender os requisitos da categoria pretendida", "Verificar as etapas aplicáveis à sua CNH", "Planejar o próximo passo na habilitação"],
+  },
+  "inclusao-de-categoria": {
+    description: "A inclusão de categoria permite acrescentar uma categoria à habilitação existente. A equipe pode orientar sua consulta sobre a inclusão de moto ou carro, conforme a CNH atual e os requisitos aplicáveis.",
+    audience: "Quem já é habilitado e deseja consultar a inclusão de outra categoria na CNH.",
+    benefits: ["Identificar a categoria a incluir", "Entender o processo de inclusão", "Consultar documentos e etapas necessários"],
+  },
+  "reciclagem": {
+    description: "O curso de reciclagem faz parte da regularização da habilitação nas situações em que é exigido pelo órgão de trânsito. Antes de contratar, confirme a necessidade do curso e as condições aplicáveis ao seu processo.",
+    audience: "Condutores que precisam de orientação sobre reciclagem e regularização da habilitação.",
+    benefits: ["Esclarecer a necessidade do curso", "Revisitar conhecimentos de trânsito", "Consultar os passos de regularização"],
+  },
+  "aulas-para-habilitados": {
+    description: "As aulas para habilitados são voltadas a quem já tem CNH e deseja retomar a prática ao volante. Converse com a unidade sobre seus objetivos, as dificuldades que deseja trabalhar e a disponibilidade de atendimento.",
+    audience: "Pessoas habilitadas que desejam retomar a direção ou trabalhar dificuldades específicas.",
+    benefits: ["Definir objetivos para a prática", "Trabalhar a confiança ao dirigir", "Consultar uma proposta conforme suas necessidades"],
+  },
+  "renovacao-de-cnh": {
+    description: "A renovação mantém a habilitação válida conforme os requisitos do órgão de trânsito. Consulte a Abdon para orientação sobre os próximos passos, documentos e procedimentos aplicáveis à sua situação.",
+    audience: "Condutores que desejam informações sobre renovação da CNH.",
+    benefits: ["Conferir a situação da habilitação", "Organizar os documentos para renovação", "Esclarecer os procedimentos necessários"],
+  },
+  "cursos-especializados": {
+    description: "Cursos especializados são voltados a atividades específicas de condução profissional. A formação necessária depende do tipo de atividade e dos requisitos de trânsito. Consulte a Abdon para confirmar os cursos disponíveis.",
+    audience: "Motoristas que desejam consultar formações para atividades profissionais específicas.",
+    benefits: ["Identificar a formação necessária à atividade", "Consultar requisitos de participação", "Confirmar cursos e turmas disponíveis"],
+  },
+};
+
 // Descriptions are neutral category summaries; offered modalities still need Abdon's confirmation.
 export const SERVICES: Service[] = [
   { slug: "primeira-habilitacao", title: "Primeira Habilitação", short: "Tire sua primeira CNH de moto, carro ou ambos.", icon: "car" },
