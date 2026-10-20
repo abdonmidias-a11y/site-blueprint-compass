@@ -2,6 +2,8 @@ import { createContext, useCallback, useContext, useState, type ReactNode } from
 import { MapPin, MessageCircle, ChevronRight } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { UNITS, unitAddress, whatsappUrl } from "@/lib/site-data";
+import { useLocation } from "@tanstack/react-router";
+import { SERVICES } from "@/lib/site-data";
 
 type Ctx = { open: (service?: string) => void };
 const UnitSelectorContext = createContext<Ctx | null>(null);
@@ -13,12 +15,14 @@ export function useUnitSelector() {
 }
 
 export function UnitSelectorProvider({ children }: { children: ReactNode }) {
+  const pathname = useLocation({ select: (location) => location.pathname });
   const [isOpen, setOpen] = useState(false);
   const [service, setService] = useState<string | undefined>();
   const open = useCallback((s?: string) => {
-    setService(s);
+    const current = SERVICES.find((item) => pathname === `/servicos/${item.slug}`);
+    setService(s ?? current?.title);
     setOpen(true);
-  }, []);
+  }, [pathname]);
 
   return (
     <UnitSelectorContext.Provider value={{ open }}>
