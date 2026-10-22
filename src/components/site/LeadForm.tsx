@@ -32,7 +32,7 @@ export function LeadForm({ service = "" }: { service?: string }) {
     if (pending.current) return;
     start();
     const fields = Object.fromEntries(new FormData(e.currentTarget));
-    const parsed = leadSchema.safeParse({ ...fields, ...getAttribution(), ...identity.current, source_page: pathname, consent: fields.consent === "on" });
+    const parsed = leadSchema.safeParse({ ...fields, ...getAttribution(), ...identity.current, source_page: pathname, consent: fields['consent'] === "on" });
     if (!parsed.success) { setError(parsed.error.issues[0]?.message ?? "Confira os campos."); return; }
     pending.current = true;
     setBusy(true); setError("");

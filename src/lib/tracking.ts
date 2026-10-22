@@ -62,7 +62,7 @@ export function initializeTracking() {
   captureAttribution();
   if (typeof window === "undefined") return;
   window.dataLayer = window.dataLayer || [];
-  const id = import.meta.env.VITE_GTM_ID;
+  const id = import.meta.env['VITE_GTM_ID'];
   if (!id || !/^GTM-[A-Z0-9]+$/.test(id) || document.getElementById("abdon-gtm")) return;
   window.dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
   const script = document.createElement("script");

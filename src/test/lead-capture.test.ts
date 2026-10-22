@@ -13,7 +13,7 @@ describe('lead validation',()=>{
 });
 describe('conversion events',()=>{
  beforeEach(()=>{window.dataLayer=[];sessionStorage.clear();});
- it('emits one generate_lead for a confirmed receipt',()=>{const id=crypto.randomUUID();trackConfirmedLead(id,{servico:valid.service,unidade:valid.unit});trackConfirmedLead(id,{});expect(window.dataLayer?.filter(e=>e.event==='generate_lead')).toHaveLength(1);});
- it('does not classify WhatsApp as a received lead',()=>{trackWhatsApp('São Francisco','Primeira Habilitação','/');expect(window.dataLayer?.map(e=>e.event)).toEqual(['click_whatsapp']);});
+ it('emits one generate_lead for a confirmed receipt',()=>{const id=crypto.randomUUID();trackConfirmedLead(id,{servico:valid.service,unidade:valid.unit});trackConfirmedLead(id,{});expect(window.dataLayer?.filter(e=>e['event']==='generate_lead')).toHaveLength(1);});
+ it('does not classify WhatsApp as a received lead',()=>{trackWhatsApp('São Francisco','Primeira Habilitação','/');expect(window.dataLayer?.map(e=>e['event'])).toEqual(['click_whatsapp']);});
  it('preserves first-touch attribution',()=>{sessionStorage.setItem('abdon_attribution',JSON.stringify({utm_source:'first'}));captureAttribution();expect(JSON.parse(sessionStorage.getItem('abdon_attribution')||'{}').utm_source).toBe('first');});
 });
