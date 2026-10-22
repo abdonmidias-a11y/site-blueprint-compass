@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AlunosAprovadosRouteImport } from './routes/alunos-aprovados'
 import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as ObrigadoRouteImport } from './routes/obrigado'
 import { Route as PoliticaDePrivacidadeRouteImport } from './routes/politica-de-privacidade'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as UnidadesRouteImport } from './routes/unidades'
@@ -31,6 +32,11 @@ const AlunosAprovadosRoute = AlunosAprovadosRouteImport.update({
 const ContatoRoute = ContatoRouteImport.update({
   id: '/contato',
   path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ObrigadoRoute = ObrigadoRouteImport.update({
+  id: '/obrigado',
+  path: '/obrigado',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PoliticaDePrivacidadeRoute = PoliticaDePrivacidadeRouteImport.update({
@@ -63,6 +69,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/alunos-aprovados': typeof AlunosAprovadosRoute
   '/contato': typeof ContatoRoute
+  '/obrigado': typeof ObrigadoRoute
   '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
   '/sobre': typeof SobreRoute
   '/unidades': typeof UnidadesRoute
@@ -73,6 +80,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/alunos-aprovados': typeof AlunosAprovadosRoute
   '/contato': typeof ContatoRoute
+  '/obrigado': typeof ObrigadoRoute
   '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
   '/sobre': typeof SobreRoute
   '/unidades': typeof UnidadesRoute
@@ -84,6 +92,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/alunos-aprovados': typeof AlunosAprovadosRoute
   '/contato': typeof ContatoRoute
+  '/obrigado': typeof ObrigadoRoute
   '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
   '/sobre': typeof SobreRoute
   '/unidades': typeof UnidadesRoute
@@ -96,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/alunos-aprovados'
     | '/contato'
+    | '/obrigado'
     | '/politica-de-privacidade'
     | '/sobre'
     | '/unidades'
@@ -106,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/alunos-aprovados'
     | '/contato'
+    | '/obrigado'
     | '/politica-de-privacidade'
     | '/sobre'
     | '/unidades'
@@ -116,6 +127,7 @@ export interface FileRouteTypes {
     | '/'
     | '/alunos-aprovados'
     | '/contato'
+    | '/obrigado'
     | '/politica-de-privacidade'
     | '/sobre'
     | '/unidades'
@@ -127,6 +139,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AlunosAprovadosRoute: typeof AlunosAprovadosRoute
   ContatoRoute: typeof ContatoRoute
+  ObrigadoRoute: typeof ObrigadoRoute
   PoliticaDePrivacidadeRoute: typeof PoliticaDePrivacidadeRoute
   SobreRoute: typeof SobreRoute
   UnidadesRoute: typeof UnidadesRoute
@@ -155,6 +168,13 @@ declare module '@tanstack/react-router' {
       path: '/contato'
       fullPath: '/contato'
       preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/obrigado': {
+      id: '/obrigado'
+      path: '/obrigado'
+      fullPath: '/obrigado'
+      preLoaderRoute: typeof ObrigadoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/politica-de-privacidade': {
@@ -199,6 +219,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AlunosAprovadosRoute: AlunosAprovadosRoute,
   ContatoRoute: ContatoRoute,
+  ObrigadoRoute: ObrigadoRoute,
   PoliticaDePrivacidadeRoute: PoliticaDePrivacidadeRoute,
   SobreRoute: SobreRoute,
   UnidadesRoute: UnidadesRoute,

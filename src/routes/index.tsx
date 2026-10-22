@@ -5,8 +5,8 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { LeadForm } from "@/components/site/LeadForm";
+import { track, trackWhatsApp } from "@/lib/tracking";
 import logo from "@/assets/logo-abdon.png.asset.json";
 import { SectionHeading, PendingNote } from "@/components/site/Section";
 import { useUnitSelector } from "@/components/site/UnitSelector";
@@ -236,28 +236,9 @@ function QuickForm() {
       <div className="grid gap-10 rounded-[2rem] border bg-card p-6 shadow-card sm:p-10 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
           <SectionHeading eyebrow="Contato rápido" title="Quer que a gente fale com você?" intro="Deixe seus dados e a unidade escolhida retorna o contato." />
-          <div className="mt-6"><PendingNote>Formulário em construção — o envio será ativado na próxima etapa. Por enquanto, use o WhatsApp.</PendingNote></div>
+
         </div>
-        <form className="grid gap-4 sm:grid-cols-2" aria-disabled onSubmit={(e) => e.preventDefault()}>
-          <fieldset disabled className="contents">
-            <Input placeholder="Nome" className="h-12 rounded-xl" />
-            <Input placeholder="WhatsApp" className="h-12 rounded-xl" />
-            <select className="h-12 rounded-xl border border-input bg-background px-3 text-sm text-muted-foreground" defaultValue="">
-              <option value="" disabled>Serviço de interesse</option>
-              {SERVICES.map((s) => <option key={s.slug}>{s.title}</option>)}
-            </select>
-            <select className="h-12 rounded-xl border border-input bg-background px-3 text-sm text-muted-foreground" defaultValue="">
-              <option value="" disabled>Unidade de preferência</option>
-              {UNITS.map((u) => <option key={u.id}>{u.name}</option>)}
-            </select>
-            <Input placeholder="E-mail (opcional)" className="h-12 rounded-xl sm:col-span-2" />
-            <Textarea placeholder="Mensagem (opcional)" className="rounded-xl sm:col-span-2" />
-            <label className="flex items-start gap-2 text-sm text-muted-foreground sm:col-span-2">
-              <input type="checkbox" className="mt-1" /> Concordo com a Política de Privacidade.
-            </label>
-            <Button variant="brand" size="xl" className="sm:col-span-2">Envio disponível em breve</Button>
-          </fieldset>
-        </form>
+        <LeadForm />
       </div>
     </section>
   );
@@ -282,7 +263,7 @@ function Units() {
                 <p className="mt-2 flex gap-2 text-sm text-muted-foreground"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />{unitAddress(u)}</p>
                 <div className="mt-auto grid gap-2 pt-6 sm:grid-cols-2">
                   <Button variant="whatsapp" size="lg" asChild>
-                    <a href={whatsappUrl(u)} target="_blank" rel="noopener noreferrer"><MessageCircle /> {formatPhone(u.whatsapp)}</a>
+                    <a onClick={() => { track("select_unit", { unidade: u.name, origem: "/", canal: "whatsapp" }); trackWhatsApp(u.name, undefined, "/"); }} href={whatsappUrl(u)} target="_blank" rel="noopener noreferrer"><MessageCircle /> {formatPhone(u.whatsapp)}</a>
                   </Button>
                   <Button variant="outline" size="lg" className="rounded-full" asChild>
                     <a href={`https://www.google.com/maps/dir/?api=1&destination=${mapsQuery(u)}`} target="_blank" rel="noopener noreferrer"><Navigation /> Como chegar</a>
