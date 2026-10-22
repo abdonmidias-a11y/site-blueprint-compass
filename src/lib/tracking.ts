@@ -21,7 +21,7 @@ export function captureAttribution() {
       if (v) found[p] = v.slice(0, 200);
     }
     const existing = sessionStorage.getItem(ATTR_KEY);
-    if (!existing || Object.keys(found).length > 0) {
+    if (!existing) {
       sessionStorage.setItem(
         ATTR_KEY,
         JSON.stringify({ ...found, referrer: document.referrer.slice(0, 500) || undefined, landing_page: url.pathname }),
@@ -45,4 +45,29 @@ export function track(event: string, params: Record<string, string | undefined> 
 /** Single entry point for WhatsApp clicks (click ≠ conversation started). */
 export function trackWhatsApp(unidade: string, servico?: string, origem?: string) {
   track("click_whatsapp", { unidade, servico, origem });
+}
+
+const confirmedEvents = new Set<string>();
+export function trackConfirmedLead(id: string, params: Record<string, string | undefined>) {
+  if (typeof window === "undefined" || confirmedEvents.has(id)) return;
+  try {
+    if (sessionStorage.getItem(`abdon_lead_event:${id}`)) return;
+    sessionStorage.setItem(`abdon_lead_event:${id}`, "1");
+  } catch { /* in-memory fallback */ }
+  confirmedEvents.add(id);
+  track("generate_lead", { ...params, event_id: id });
+}
+
+export function initializeTracking() {
+  captureAttribution();
+  if (typeof window === "undefined") return;
+  window.dataLayer = window.dataLayer || [];
+  const id = import.meta.env.VITE_GTM_ID;
+  if (!id || !/^GTM-[A-Z0-9]+$/.test(id) || document.getElementById("abdon-gtm")) return;
+  window.dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
+  const script = document.createElement("script");
+  script.id = "abdon-gtm";
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(id)}`;
+  document.head.appendChild(script);
 }
