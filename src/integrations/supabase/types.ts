@@ -27,6 +27,7 @@ export type Database = {
           referrer: string | null
           service: string
           source_page: string | null
+          submission_id: string | null
           unit: string
           utm_campaign: string | null
           utm_content: string | null
@@ -47,6 +48,7 @@ export type Database = {
           referrer?: string | null
           service: string
           source_page?: string | null
+          submission_id?: string | null
           unit: string
           utm_campaign?: string | null
           utm_content?: string | null
@@ -67,6 +69,7 @@ export type Database = {
           referrer?: string | null
           service?: string
           source_page?: string | null
+          submission_id?: string | null
           unit?: string
           utm_campaign?: string | null
           utm_content?: string | null
@@ -82,7 +85,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      submit_abdon_lead: { Args: { payload: Json }; Returns: string }
     }
     Enums: {
       [_ in never]: never

@@ -4,6 +4,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { UNITS, unitAddress, whatsappUrl } from "@/lib/site-data";
 import { useLocation } from "@tanstack/react-router";
 import { SERVICES } from "@/lib/site-data";
+import { track, trackWhatsApp } from "@/lib/tracking";
 
 type Ctx = { open: (service?: string) => void };
 const UnitSelectorContext = createContext<Ctx | null>(null);
@@ -44,7 +45,11 @@ export function UnitSelectorProvider({ children }: { children: ReactNode }) {
                     href={whatsappUrl(u, service)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={() => setOpen(false)}
+                    onClick={() => {
+                      track("select_unit", { unidade: u.name, servico: service, origem: pathname, canal: "whatsapp" });
+                      trackWhatsApp(u.name, service, pathname);
+                      setOpen(false);
+                    }}
                     className="group flex w-full min-w-0 items-center gap-4 rounded-2xl border bg-card p-4 transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-card"
                   >
                     <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-accent text-primary">

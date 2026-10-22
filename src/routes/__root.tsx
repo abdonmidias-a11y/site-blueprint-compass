@@ -14,6 +14,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { UnitSelectorProvider } from "@/components/site/UnitSelector";
 import { TopBar, Header, Footer, FloatingWhatsApp } from "@/components/site/SiteChrome";
+import { initializeTracking } from "@/lib/tracking";
 
 function NotFoundComponent() {
   return (
@@ -120,6 +121,7 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  useEffect(() => { initializeTracking(); }, []);
 
   return (
     <QueryClientProvider client={queryClient}>

@@ -13,3 +13,6 @@
 - All general contact buttons call useUnitSelector().open(service?) instead of linking to WhatsApp directly, so unit choice and message format stay centralized.
 
 - Internal content pages share InternalPages.tsx and service details are keyed in site-data.ts to avoid duplicating layouts and business content.
+
+- LeadForm shares client/server Zod validation; public submission uses an insert-only RPC with a unique submission receipt, honeypot and minimum interaction time; visitors have no direct lead-table privileges.
+- Conversion events are emitted at the originating action; generate_lead only follows a confirmed receipt, never a WhatsApp click or thank-you page view. GTM loads only with a valid VITE_GTM_ID.
