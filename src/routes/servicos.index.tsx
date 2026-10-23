@@ -4,10 +4,10 @@ import { ServicesDirectory } from "@/components/site/InternalPages";
 export const Route = createFileRoute("/servicos/")({
   head: () => ({
     meta: [
-      { title: "Nossos serviços | Autoescola Abdon" },
-      { name: "description", content: "Todos os serviços da Autoescola Abdon em São Luís/MA." },
-      { property: "og:title", content: "Nossos serviços | Autoescola Abdon" },
-      { property: "og:description", content: "Todos os serviços da Autoescola Abdon em São Luís/MA." },
+      { title: "Serviços de CNH em São Luís MA | Autoescola Abdon" },
+      { name: "description", content: "Primeira CNH A e B, mudança de categoria D e E, aulas para habilitados, renovação e orientação na Autoescola Abdon em São Luís/MA." },
+      { property: "og:title", content: "Serviços de CNH em São Luís MA | Autoescola Abdon" },
+      { property: "og:description", content: "Primeira CNH A e B, mudança de categoria D e E, aulas para habilitados, renovação e orientação na Autoescola Abdon em São Luís/MA." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],

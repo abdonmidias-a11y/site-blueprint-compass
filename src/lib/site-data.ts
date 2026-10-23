@@ -44,54 +44,26 @@ export const UNITS: Unit[] = [
 
 export type Service = { slug: string; title: string; short: string; icon: string };
 
-// Neutral draft content. Edit here after Abdon confirms its actual modalities and conditions.
-export const SERVICE_DETAILS: Record<string, { description: string; audience: string; benefits: string[] }> = {
-  "primeira-habilitacao": {
-    description: "A primeira habilitação é o processo para quem ainda não possui CNH. Envolve as etapas exigidas pelo órgão de trânsito para a categoria desejada. Consulte a Abdon para conhecer as opções e receber orientação para começar.",
-    audience: "Quem deseja iniciar o processo de habilitação e entender as etapas para obter a primeira CNH.",
-    benefits: ["Conhecer o caminho até a primeira CNH", "Esclarecer dúvidas sobre a categoria desejada", "Organizar a documentação antes de iniciar"],
-  },
-  "alteracao-de-categoria": {
-    description: "A alteração de categoria é destinada a quem já tem CNH e deseja dirigir veículos de outra categoria. Os requisitos variam conforme a habilitação atual e a categoria pretendida. Consulte a unidade para verificar sua situação.",
-    audience: "Motoristas habilitados que desejam conhecer o processo de mudança de categoria.",
-    benefits: ["Entender os requisitos da categoria pretendida", "Verificar as etapas aplicáveis à sua CNH", "Planejar o próximo passo na habilitação"],
-  },
-  "inclusao-de-categoria": {
-    description: "A inclusão de categoria permite acrescentar uma categoria à habilitação existente. A equipe pode orientar sua consulta sobre a inclusão de moto ou carro, conforme a CNH atual e os requisitos aplicáveis.",
-    audience: "Quem já é habilitado e deseja consultar a inclusão de outra categoria na CNH.",
-    benefits: ["Identificar a categoria a incluir", "Entender o processo de inclusão", "Consultar documentos e etapas necessários"],
-  },
-  "reciclagem": {
-    description: "O curso de reciclagem faz parte da regularização da habilitação nas situações em que é exigido pelo órgão de trânsito. Antes de contratar, confirme a necessidade do curso e as condições aplicáveis ao seu processo.",
-    audience: "Condutores que precisam de orientação sobre reciclagem e regularização da habilitação.",
-    benefits: ["Esclarecer a necessidade do curso", "Revisitar conhecimentos de trânsito", "Consultar os passos de regularização"],
-  },
-  "aulas-para-habilitados": {
-    description: "As aulas para habilitados são voltadas a quem já tem CNH e deseja retomar a prática ao volante. Converse com a unidade sobre seus objetivos, as dificuldades que deseja trabalhar e a disponibilidade de atendimento.",
-    audience: "Pessoas habilitadas que desejam retomar a direção ou trabalhar dificuldades específicas.",
-    benefits: ["Definir objetivos para a prática", "Trabalhar a confiança ao dirigir", "Consultar uma proposta conforme suas necessidades"],
-  },
-  "renovacao-de-cnh": {
-    description: "A renovação mantém a habilitação válida conforme os requisitos do órgão de trânsito. Consulte a Abdon para orientação sobre os próximos passos, documentos e procedimentos aplicáveis à sua situação.",
-    audience: "Condutores que desejam informações sobre renovação da CNH.",
-    benefits: ["Conferir a situação da habilitação", "Organizar os documentos para renovação", "Esclarecer os procedimentos necessários"],
-  },
-  "cursos-especializados": {
-    description: "Cursos especializados são voltados a atividades específicas de condução profissional. A formação necessária depende do tipo de atividade e dos requisitos de trânsito. Consulte a Abdon para confirmar os cursos disponíveis.",
-    audience: "Motoristas que desejam consultar formações para atividades profissionais específicas.",
-    benefits: ["Identificar a formação necessária à atividade", "Consultar requisitos de participação", "Confirmar cursos e turmas disponíveis"],
-  },
+// Official service copy supplied by Abdon.
+export const SERVICE_DETAILS: Record<string, { headline: string; subheadline: string; description: string; benefits: string[]; cta: string }> = {
+  "primeira-habilitacao": {"headline": "Sua primeira CNH merece uma grande escolha.", "subheadline": "Comece sua jornada com a experiência de quem há 29 anos participa da formação de condutores no Maranhão.", "description": "Conquistar a primeira habilitação é um passo importante para sua liberdade e independência.\n\nNa Autoescola Abdon, você encontra atendimento para as categorias A (moto) e B (carro), com uma equipe preparada para orientar cada etapa do processo.\n\nNossa estrutura conta com motos, carros manuais e automáticos, incluindo opções diferenciadas para as necessidades dos alunos.", "benefits": ["Categoria A — Moto", "Categoria B — Carro", "Atendimento em três unidades", "Frota diversificada", "Orientação sobre as etapas do processo"], "cta": "Quero começar minha primeira CNH"},
+  "alteracao-de-categoria": {"headline": "Novas categorias. Novas possibilidades para sua trajetória.", "subheadline": "Amplie suas oportunidades com a preparação para as categorias D e E.", "description": "Para quem deseja avançar na habilitação e conduzir veículos de outras categorias, a Autoescola Abdon oferece estrutura com ônibus e carretas.\n\nNossa equipe orienta sobre os requisitos, a documentação e as etapas necessárias para solicitar a alteração de categoria.\n\nA elegibilidade depende das exigências legais aplicáveis ao condutor.", "benefits": ["Categoria D — Ônibus", "Categoria E — Carreta", "Frota com dois ônibus e duas carretas", "Orientação sobre requisitos e procedimentos"], "cta": "Quero mudar minha categoria"},
+  "inclusao-de-categoria": {"headline": "Sua habilitação pode levar você ainda mais longe.", "subheadline": "Já dirige carro e quer pilotar moto? Ou já pilota moto e deseja dirigir carro?", "description": "A inclusão de categoria permite ampliar as possibilidades da sua habilitação, conforme as regras aplicáveis.\n\nNa Autoescola Abdon, você recebe orientação para incluir a categoria A ou B, com atendimento e estrutura para sua preparação.", "benefits": ["Inclusão da categoria A — Moto", "Inclusão da categoria B — Carro", "Orientação sobre o processo", "Equipe e veículos para preparação prática"], "cta": "Quero incluir uma categoria"},
+  "reciclagem": {"headline": "Recomece com conhecimento e responsabilidade.", "subheadline": "Receba orientação para cumprir as etapas do processo de reciclagem da CNH.", "description": "Se você precisa realizar um curso de reciclagem, entender as exigências do seu caso é o primeiro passo.\n\nA equipe da Autoescola Abdon pode orientar você sobre os procedimentos e as modalidades disponíveis, conforme as regras vigentes.", "benefits": [], "cta": "Quero informações sobre reciclagem"},
+  "aulas-para-habilitados": {"headline": "Você já tem CNH. Agora é hora de conquistar confiança.", "subheadline": "Volte ao volante e desenvolva mais segurança na direção.", "description": "Ter a habilitação nem sempre significa sentir tranquilidade para dirigir no dia a dia.\n\nSe você está há muito tempo sem dirigir, sente insegurança no trânsito ou deseja aprimorar suas habilidades, as aulas para habilitados podem ajudar.\n\nNa Autoescola Abdon, você pode buscar orientação sobre aulas práticas adequadas às suas necessidades.", "benefits": ["Retomada da prática ao volante", "Desenvolvimento de confiança", "Orientação individualizada conforme disponibilidade", "Opções de veículos a confirmar no atendimento"], "cta": "Quero voltar a dirigir"},
+  "renovacao-de-cnh": {"headline": "Sua CNH precisa de atenção? Estamos aqui para orientar.", "subheadline": "Entenda os procedimentos necessários para renovar sua habilitação.", "description": "Manter sua CNH regularizada é importante para continuar dirigindo dentro das exigências legais.\n\nA Autoescola Abdon oferece atendimento para orientar você sobre o processo de renovação, a documentação e as etapas aplicáveis ao seu caso.", "benefits": [], "cta": "Quero informações sobre renovação"},
+  "cursos-especializados": {"headline": "Mais qualificação para novos caminhos profissionais.", "subheadline": "Conheça os cursos especializados relacionados às atividades de transporte.", "description": "Determinadas atividades profissionais exigem conhecimentos e qualificações específicas.\n\nA Autoescola Abdon pode orientar você sobre as opções de cursos especializados disponíveis e os requisitos para cada atividade.", "benefits": [], "cta": "Consultar cursos disponíveis"},
 };
 
-// Descriptions are neutral category summaries; offered modalities still need Abdon's confirmation.
+// Official service card copy; stable titles preserve stored lead values.
 export const SERVICES: Service[] = [
-  { slug: "primeira-habilitacao", title: "Primeira Habilitação", short: "Tire sua primeira CNH de moto, carro ou ambos.", icon: "car" },
-  { slug: "alteracao-de-categoria", title: "Alteração de Categoria", short: "Mude para as categorias de ônibus ou carreta.", icon: "bus" },
-  { slug: "inclusao-de-categoria", title: "Inclusão de Categoria", short: "Inclua moto ou carro na sua habilitação.", icon: "plus" },
-  { slug: "reciclagem", title: "Curso de Reciclagem", short: "Regularize sua CNH após suspensão.", icon: "refresh" },
-  { slug: "aulas-para-habilitados", title: "Aulas para Habilitados", short: "Ganhe confiança ao volante com aulas práticas.", icon: "wheel" },
-  { slug: "renovacao-de-cnh", title: "Renovação de CNH", short: "Orientação para renovar sua habilitação.", icon: "id" },
-  { slug: "cursos-especializados", title: "Cursos Especializados", short: "Formações para atuação profissional no trânsito.", icon: "award" },
+  { slug: "primeira-habilitacao", title: "Primeira Habilitação", short: "Sua primeira CNH começa com orientação, preparação e uma estrutura pensada para acompanhar cada etapa da sua conquista.", icon: "car" },
+  { slug: "alteracao-de-categoria", title: "Alteração de Categoria", short: "Quer ampliar suas possibilidades ao volante? Conheça o processo para avançar às categorias D e E.", icon: "bus" },
+  { slug: "inclusao-de-categoria", title: "Inclusão de Categoria", short: "Já possui habilitação e deseja incluir moto ou carro? Conte com nossa equipe para orientar os próximos passos.", icon: "plus" },
+  { slug: "reciclagem", title: "Curso de Reciclagem", short: "Receba orientação para realizar o processo de reciclagem exigido na sua situação.", icon: "refresh" },
+  { slug: "aulas-para-habilitados", title: "Aulas para Habilitados", short: "Já tem CNH, mas ainda sente insegurança para dirigir? Desenvolva sua confiança com acompanhamento prático.", icon: "wheel" },
+  { slug: "renovacao-de-cnh", title: "Renovação de CNH", short: "Entenda as etapas necessárias para manter sua habilitação regularizada.", icon: "id" },
+  { slug: "cursos-especializados", title: "Cursos Especializados", short: "Conheça as possibilidades de capacitação para diferentes atividades de transporte, conforme a oferta disponível.", icon: "award" },
 ];
 
 export function unitAddress(u: Unit) {
@@ -116,3 +88,9 @@ export function buildWhatsAppMessage(unit: Unit, service?: string) {
 export function whatsappUrl(unit: Unit, service?: string) {
   return `https://wa.me/${unit.whatsapp}?text=${encodeURIComponent(buildWhatsAppMessage(unit, service))}`;
 }
+
+export const FAQ = [{"question": "Se eu tirar minha CNH no carro automático, só poderei dirigir automático?", "answer": "A realização do exame em carro automático não significa, por si só, que a CNH ficará limitada a veículos automáticos. As condições e eventuais restrições dependem das regras aplicáveis ao seu processo. Consulte nossa equipe para receber orientação."}, {"question": "O primeiro reteste não é gratuito?", "answer": "As regras atuais podem prever uma segunda tentativa sem nova cobrança da taxa de exame, conforme as condições aplicáveis. Serviços adicionais, como aulas extras ou disponibilização de veículo, podem ter cobrança própria. Consulte nossa equipe para verificar seu caso."}, {"question": "Agora é só fazer as aulas? Não preciso mais pagar taxas?", "answer": "Mesmo com as mudanças no processo de habilitação, ainda podem existir etapas obrigatórias, exames e taxas. Nossa equipe pode ajudar você a identificar o que já foi concluído e o que ainda falta."}, {"question": "Já paguei a prova teórica na taxa do Detran. Preciso pagar novamente?", "answer": "Isso depende do registro do pagamento e da situação atual do seu processo. Antes de realizar um novo pagamento, procure confirmar quais taxas já foram quitadas e quais etapas ainda estão pendentes."}, {"question": "Quero fazer tudo pelo aplicativo CNH do Brasil. Preciso de autoescola?", "answer": "O aplicativo CNH do Brasil permite realizar etapas do processo, incluindo o curso teórico gratuito. As aulas práticas continuam sendo necessárias para a primeira habilitação, conforme as regras vigentes. Você pode procurar a Abdon para conhecer as opções de preparação prática."}, {"question": "Já fiz minha prova teórica pela CNH do Brasil. Posso fazer minhas aulas práticas na Abdon?", "answer": "Sim. Se você já concluiu a etapa teórica e está apto a iniciar a formação prática, pode procurar a Autoescola Abdon para conhecer as opções de aulas e os próximos procedimentos."}];
+
+export const COMPANY = {"years": 29, "instructors": 8, "reception": 10, "mission": "Nossa missão vai além de aprovar.", "reviewsUrl": "https://www.google.com/search?q=Autoescola+Abdon+-+S%C3%A3o+Francisco,+S%C3%A3o+Lu%C3%ADs+-+MA", "automatic": ["Volkswagen Polo", "Hyundai HB20 adaptado para PCD", "Kia Picanto", "Jeep Renegade", "BYD elétrico"], "manual": ["Hyundai HB20", "Volkswagen Polo", "2 Fiat Pulse"], "otherVehicles": ["3 motos", "2 ônibus", "2 carretas"]};
+
+export function unitLabel(unit: Unit) { return unit.id === "sao-francisco" ? `${unit.name} — Matriz` : unit.name; }
