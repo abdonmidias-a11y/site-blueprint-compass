@@ -3,15 +3,15 @@ import { Link } from "@tanstack/react-router";
 import { MapPin, Menu, MessageCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-abdon.png.asset.json";
-import { SERVICES, UNITS, formatPhone, unitAddress, whatsappUrl } from "@/lib/site-data";
+import { SERVICES, UNITS, unitLabel, formatPhone, unitAddress, whatsappUrl } from "@/lib/site-data";
 import { useUnitSelector } from "./UnitSelector";
 
 export const NAV = [
   { to: "/", label: "Início" },
-  { to: "/sobre", label: "Sobre" },
+  { to: "/sobre", label: "Sobre a Abdon" },
   { to: "/servicos", label: "Serviços" },
-  { to: "/unidades", label: "Unidades" },
-  { to: "/alunos-aprovados", label: "Aprovados" },
+  { to: "/unidades", label: "Nossas Unidades" },
+  { to: "/alunos-aprovados", label: "Alunos Aprovados" },
   { to: "/contato", label: "Contato" },
 ] as const;
 
@@ -20,7 +20,7 @@ export function TopBar() {
   return (
     <div className="bg-ink text-ink-foreground">
       <div className="container-site flex h-10 items-center gap-6 overflow-x-auto text-xs whitespace-nowrap">
-        <span className="hidden font-semibold text-secondary md:inline">3 unidades em São Luís:</span>
+        <span className="hidden font-semibold text-secondary md:inline">29 anos formando condutores no Maranhão.</span>
         {UNITS.map((u) => (
           <a
             key={u.id}
@@ -31,7 +31,7 @@ export function TopBar() {
             className="inline-flex items-center gap-1.5 opacity-85 transition-opacity hover:opacity-100"
           >
             <MapPin className="h-3.5 w-3.5 text-secondary" />
-            <span className="font-semibold">{u.name}</span>
+            <span className="font-semibold">{unitLabel(u)}</span>
             <span className="hidden lg:inline opacity-70">{formatPhone(u.whatsapp)}</span>
           </a>
         ))}
@@ -57,13 +57,13 @@ export function Header() {
         <Link to="/" className="flex shrink-0 items-center" aria-label="Autoescola Abdon — início">
           <img src={logo.url} alt="Autoescola Abdon" className="h-16 w-16 rounded-lg object-contain" />
         </Link>
-        <nav className="hidden justify-center gap-1 lg:flex" aria-label="Principal">
+        <nav className="hidden justify-center gap-1 xl:flex" aria-label="Principal">
           {NAV.map((n) => (
             <Link
               key={n.to}
               to={n.to}
               activeOptions={{ exact: true }}
-              className="rounded-full px-4 py-2 text-sm font-semibold opacity-85 transition hover:bg-primary-foreground/10 hover:opacity-100 data-[status=active]:bg-primary-foreground/15 data-[status=active]:opacity-100"
+              className="rounded-full px-2 py-2 text-sm font-semibold opacity-85 transition hover:bg-primary-foreground/10 hover:opacity-100 data-[status=active]:bg-primary-foreground/15 data-[status=active]:opacity-100"
             >
               {n.label}
             </Link>
@@ -71,10 +71,10 @@ export function Header() {
         </nav>
         <div className="col-start-3 flex items-center gap-2">
           <Button variant="cta" size="lg" className="hidden sm:inline-flex" onClick={() => open()}>
-            <MessageCircle /> Fale conosco
+            <MessageCircle /> Fale com a Abdon
           </Button>
           <button
-            className="grid h-11 w-11 place-items-center rounded-full bg-primary-foreground/10 lg:hidden"
+            className="grid h-11 w-11 place-items-center rounded-full bg-primary-foreground/10 xl:hidden"
             onClick={() => setMenu((m) => !m)}
             aria-label={menu ? "Fechar menu" : "Abrir menu"}
             aria-expanded={menu}
@@ -84,7 +84,7 @@ export function Header() {
         </div>
       </div>
       {menu && (
-        <nav className="border-t border-primary-foreground/15 bg-primary-deep lg:hidden" aria-label="Menu móvel">
+        <nav className="border-t border-primary-foreground/15 bg-primary-deep xl:hidden" aria-label="Menu móvel">
           <div className="container-site flex flex-col py-3">
             {NAV.map((n) => (
               <Link key={n.to} to={n.to} onClick={() => setMenu(false)} className="rounded-xl px-3 py-3 font-semibold hover:bg-primary-foreground/10">
@@ -92,7 +92,7 @@ export function Header() {
               </Link>
             ))}
             <Button variant="cta" size="xl" className="mt-3" onClick={() => { setMenu(false); open(); }}>
-              <MessageCircle /> Fale conosco
+              <MessageCircle /> Fale com a Abdon
             </Button>
           </div>
         </nav>
@@ -124,8 +124,8 @@ export function Footer() {
       <div className="container-site grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <img src={logo.url} alt="Autoescola Abdon" className="h-24 w-24 rounded-xl" />
-          <p className="mt-4 font-display text-lg font-bold text-secondary">A mais completa do Maranhão</p>
-          <p className="mt-3 text-sm opacity-60">Redes sociais: aguardando links oficiais.</p>
+          <p className="mt-4 font-display text-lg font-bold text-secondary">A mais completa do Maranhão</p><p className="mt-3 text-sm opacity-75">Nossa missão vai além de aprovar.</p>
+          <p className="mt-3 text-sm opacity-60">Autoescola Abdon — Há 29 anos formando condutores no Maranhão.</p>
         </div>
         <div>
           <h3 className="font-display text-sm font-bold tracking-widest text-secondary uppercase">Navegação</h3>
@@ -151,7 +151,7 @@ export function Footer() {
           <ul className="mt-4 space-y-4 text-sm">
             {UNITS.map((u) => (
               <li key={u.id}>
-                <p className="font-semibold">{u.name}</p>
+                <p className="font-semibold">{unitLabel(u)}</p>
                 <p className="opacity-60">{unitAddress(u)}</p>
                 <a href={whatsappUrl(u)}
             onClick={(event) => { event.preventDefault(); open(); }} target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline">
