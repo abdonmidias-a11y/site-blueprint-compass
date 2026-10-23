@@ -4,10 +4,10 @@ import { UnitsPage } from "@/components/site/InternalPages";
 export const Route = createFileRoute("/unidades")({
   head: () => ({
     meta: [
-      { title: "Nossas unidades | Autoescola Abdon" },
-      { name: "description", content: "Endereços, mapas e WhatsApp das três unidades Abdon." },
-      { property: "og:title", content: "Nossas unidades | Autoescola Abdon" },
-      { property: "og:description", content: "Endereços, mapas e WhatsApp das três unidades Abdon." },
+      { title: "Unidades em São Luís MA | Autoescola Abdon" },
+      { name: "description", content: "Encontre a matriz São Francisco e as unidades Vila Palmeira e Renascença da Autoescola Abdon. Endereços, mapas e contatos em São Luís/MA." },
+      { property: "og:title", content: "Unidades em São Luís MA | Autoescola Abdon" },
+      { property: "og:description", content: "Encontre a matriz São Francisco e as unidades Vila Palmeira e Renascença da Autoescola Abdon. Endereços, mapas e contatos em São Luís/MA." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],

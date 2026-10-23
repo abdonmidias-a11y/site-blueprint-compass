@@ -11,10 +11,10 @@ export const Route = createFileRoute("/servicos/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `${loaderData.service.title} | Autoescola Abdon` },
-          { name: "description", content: loaderData.service.short },
-          { property: "og:title", content: `${loaderData.service.title} | Autoescola Abdon` },
-          { property: "og:description", content: loaderData.service.short },
+          { title: `${loaderData.service.title} em São Luís | Autoescola Abdon` },
+          { name: "description", content: `${loaderData.service.short} Atendimento em São Luís/MA.` },
+          { property: "og:title", content: `${loaderData.service.title} em São Luís | Autoescola Abdon` },
+          { property: "og:description", content: `${loaderData.service.short} Atendimento em São Luís/MA.` },
           { property: "og:type", content: "website" },
           { name: "twitter:card", content: "summary" },
         ]
