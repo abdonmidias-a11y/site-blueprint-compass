@@ -9,7 +9,7 @@ import { leadSchema } from "@/lib/lead-schema";
 import { submitLead } from "@/lib/leads.functions";
 import { captureAttribution, getAttribution, track, trackConfirmedLead } from "@/lib/tracking";
 
-export function LeadForm({ service = "" }: { service?: string }) {
+export function LeadForm({ service = "", submitLabel = "Solicitar atendimento" }: { service?: string; submitLabel?: string }) {
   const pathname = useLocation({ select: (l) => l.pathname });
   const navigate = useNavigate();
   const send = useServerFn(submitLead);
@@ -61,7 +61,7 @@ export function LeadForm({ service = "" }: { service?: string }) {
       <div className="sr-only" aria-hidden="true"><input name="website" tabIndex={-1} autoComplete="off" /></div>
       <label className="flex items-start gap-2 text-sm text-muted-foreground sm:col-span-2"><input type="checkbox" name="consent" required className="mt-1" /><span>Autorizo o uso dos meus dados para contato e li a <Link className="text-primary underline" to="/politica-de-privacidade">Política de Privacidade</Link>.</span></label>
       {error && <p role="alert" className="text-destructive sm:col-span-2">{error}</p>}
-      <Button type="submit" variant="brand" size="xl" className="sm:col-span-2" disabled={busy}>{busy ? "Enviando…" : "Enviar contato"}</Button>
+      <Button type="submit" variant="brand" size="xl" className="sm:col-span-2" disabled={busy}>{busy ? "Enviando…" : submitLabel}</Button>
     </fieldset>
   </form>;
 }
