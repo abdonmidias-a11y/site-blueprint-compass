@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  Award, Bus, Car, CircleDot, IdCard, ImageIcon, MapPin, MessageCircle, Navigation,
-  Plus, Quote, RefreshCw, ArrowRight, HelpCircle, Building2, Layers, Headphones,
+  Award, Bus, Car, CircleDot, IdCard, MapPin, MessageCircle, Navigation,
+  Plus, RefreshCw, ArrowRight, Building2, Layers, Headphones,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
