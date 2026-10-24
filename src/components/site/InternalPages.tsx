@@ -21,12 +21,9 @@ function PageIntro({ title, intro, eyebrow = "Autoescola Abdon", headline }: { t
 export function ServiceDetail({ service }: { service: Service }) {
   const details = SERVICE_DETAILS[service.slug];
   if (!details) return null;
-  return <>
-    <PageIntro title={service.title} headline={details.headline} intro={details.subheadline} eyebrow={service.title} />
-    <section className="container-site py-14 sm:py-20">
-      <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_320px]">
-        <div className="min-w-0 space-y-10">
-          {SERVICE_PHOTOS[service.slug] && <div className="grid gap-4 sm:grid-cols-2">{SERVICE_PHOTOS[service.slug].map((p) => <img key={p.url} src={p.url} alt={p.alt} loading="lazy" className="aspect-[4/5] w-full rounded-3xl object-cover object-top shadow-card" />)}</div>}
+  const photos = SERVICE_PHOTOS[service.slug];
+...
+          {photos && <div className="grid gap-4 sm:grid-cols-2">{photos.map((p) => <img key={p.url} src={p.url} alt={p.alt} loading="lazy" className="aspect-[4/5] w-full rounded-3xl object-cover object-top shadow-card" />)}</div>}
           <div><h2 className="text-3xl font-bold">Sobre o serviço</h2><p className="mt-4 whitespace-pre-line text-lg leading-relaxed text-muted-foreground">{details.description}</p></div>
                     {details.benefits.length > 0 && <div><h2 className="text-2xl font-bold">Destaques</h2><ul className="mt-4 space-y-3">{details.benefits.map((b) => <li key={b} className="flex gap-3"><CheckCircle2 className="h-5 w-5 shrink-0 text-primary" />{b}</li>)}</ul></div>}
           <div><h2 className="text-2xl font-bold">Como iniciar</h2><ol className="mt-5 space-y-5">{["Escolha uma unidade da Abdon.", "Informe seu interesse e tire suas dúvidas com a equipe.", "Confirme requisitos, documentos, disponibilidade e condições antes de contratar."].map((s, i) => <li key={s} className="flex items-start gap-4"><span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-secondary font-bold text-secondary-foreground">{i + 1}</span><p className="pt-1">{s}</p></li>)}</ol></div>
