@@ -6,6 +6,7 @@ import { useUnitSelector } from "./UnitSelector";
 import { COMPANY, SERVICES, SERVICE_DETAILS, UNITS, unitLabel, formatPhone, mapsQuery, unitAddress, type Service } from "@/lib/site-data";
 import { Faq } from "./Faq";
 import { LeadForm } from "./LeadForm";
+import { APPROVED_PHOTOS, PHOTOS, SERVICE_PHOTOS } from "@/lib/photos";
 import logo from "@/assets/logo-abdon.png.asset.json";
 
 export function ContactCta({ service, label = "Falar com a Abdon" }: { service?: string; label?: string }) {
@@ -25,6 +26,7 @@ export function ServiceDetail({ service }: { service: Service }) {
     <section className="container-site py-14 sm:py-20">
       <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_320px]">
         <div className="min-w-0 space-y-10">
+          {SERVICE_PHOTOS[service.slug] && <div className="grid gap-4 sm:grid-cols-2">{SERVICE_PHOTOS[service.slug].map((p) => <img key={p.url} src={p.url} alt={p.alt} loading="lazy" className="aspect-[4/5] w-full rounded-3xl object-cover object-top shadow-card" />)}</div>}
           <div><h2 className="text-3xl font-bold">Sobre o serviço</h2><p className="mt-4 whitespace-pre-line text-lg leading-relaxed text-muted-foreground">{details.description}</p></div>
                     {details.benefits.length > 0 && <div><h2 className="text-2xl font-bold">Destaques</h2><ul className="mt-4 space-y-3">{details.benefits.map((b) => <li key={b} className="flex gap-3"><CheckCircle2 className="h-5 w-5 shrink-0 text-primary" />{b}</li>)}</ul></div>}
           <div><h2 className="text-2xl font-bold">Como iniciar</h2><ol className="mt-5 space-y-5">{["Escolha uma unidade da Abdon.", "Informe seu interesse e tire suas dúvidas com a equipe.", "Confirme requisitos, documentos, disponibilidade e condições antes de contratar."].map((s, i) => <li key={s} className="flex items-start gap-4"><span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-secondary font-bold text-secondary-foreground">{i + 1}</span><p className="pt-1">{s}</p></li>)}</ol></div>
@@ -61,8 +63,12 @@ export function AboutPage() {
   </div><div className="mt-14"><SectionHeading eyebrow="Perto de você" title="Conheça nossas unidades" /><div className="mt-8"><UnitsList /></div></div></section></>;
 }
 
+export function ApprovedGallery({ photos = APPROVED_PHOTOS }: { photos?: typeof APPROVED_PHOTOS }) {
+  return <div className="grid gap-5 grid-cols-2 lg:grid-cols-3">{photos.map((p, i) => <img key={p.url} src={p.url} alt={p.alt} loading="lazy" className={`aspect-[3/4] w-full rounded-3xl object-cover object-top shadow-card ${i === 0 ? "col-span-2 lg:col-span-1" : ""}`} />)}</div>;
+}
+
 export function ApprovedPage() {
-  return <><PageIntro title="Alunos aprovados" headline="A conquista é deles. A alegria é de todos nós." intro="Cada aluno aprovado representa uma jornada de dedicação, aprendizado e superação." /><section className="container-site py-16"><p className="max-w-3xl text-lg leading-relaxed text-muted-foreground">É uma satisfação fazer parte desses momentos e celebrar novas histórias que começam ao volante.</p><div className="mt-10"><ContactCta label="Quero começar minha história" /></div></section></>;
+  return <><PageIntro title="Alunos aprovados" headline="A conquista é deles. A alegria é de todos nós." intro="Cada aluno aprovado representa uma jornada de dedicação, aprendizado e superação." /><section className="container-site py-16"><p className="max-w-3xl text-lg leading-relaxed text-muted-foreground">É uma satisfação fazer parte desses momentos e celebrar novas histórias que começam ao volante.</p><div className="mt-10"><ApprovedGallery /></div><div className="mt-10"><ContactCta label="Quero começar minha história" /></div></section></>;
 }
 
 export function ContactPage() {
