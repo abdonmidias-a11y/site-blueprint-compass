@@ -11,6 +11,7 @@ import { Faq } from "@/components/site/Faq";
 import logo from "@/assets/logo-abdon.png.asset.json";
 import { SectionHeading } from "@/components/site/Section";
 import { useUnitSelector } from "@/components/site/UnitSelector";
+import { APPROVED_PHOTOS } from "@/lib/photos";
 import { COMPANY, SERVICES, UNITS, unitLabel, formatPhone, mapsQuery, unitAddress, whatsappUrl } from "@/lib/site-data";
 
 export const Route = createFileRoute("/")({
@@ -39,6 +40,7 @@ function Index() {
       <Services />
       <HowToStart />
       <About />
+      <ApprovedCarousel />
       <Testimonials />
       <QuickForm />
       <Units />
@@ -183,6 +185,24 @@ function About() {
           <Button variant="cta" size="lg" className="mt-8" asChild><Link to="/sobre">Conheça nossa história <ArrowRight /></Link></Button>
         </div>
         <img src={logo.url} alt="Autoescola Abdon — A mais completa do Maranhão" className="mx-auto w-full max-w-md rounded-3xl" />
+      </div>
+    </section>
+  );
+}
+
+function ApprovedCarousel() {
+  return (
+    <section className="bg-muted py-20">
+      <div className="container-site">
+        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <SectionHeading eyebrow="Alunos aprovados" title="A conquista é deles. A alegria é de todos nós." intro="Histórias reais de quem se preparou na Abdon e conquistou a habilitação." />
+          <Button variant="brand" size="lg" asChild><Link to="/alunos-aprovados">Ver galeria <ArrowRight /></Link></Button>
+        </div>
+      </div>
+      <div className="mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 pl-5 pr-5 lg:pl-[max(2rem,calc((100vw-80rem)/2+2rem))]">
+        {APPROVED_PHOTOS.map((p) => (
+          <img key={p.url} src={p.url} alt={p.alt} loading="lazy" className="aspect-[3/4] w-64 shrink-0 snap-center rounded-3xl object-cover object-top shadow-card sm:w-72" />
+        ))}
       </div>
     </section>
   );
