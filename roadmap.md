@@ -14,3 +14,7 @@
 - [x] Testar envio real, registro, obrigado, WhatsApp e navegação mobile
 - [ ] Ativar container GTM: depende do ID real e configuração das tags do cliente
 - Painel administrativo: fora do escopo atual
+
+## Fotos reais (24/10) — concluído
+- 9 fotos reais distribuídas: galeria + carrossel de aprovados (5), Primeira Habilitação e Inclusão (carro+moto), Sobre (fachada, recepção, equipe).
+- Sem foto real de ônibus/carreta: D/E sem imagem. Sem foto da recepção Renascença: não atribuída.
