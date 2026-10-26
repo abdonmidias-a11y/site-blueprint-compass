@@ -38,7 +38,7 @@ export const UNITS: Unit[] = [
     district: "Jardim Renascença II",
     city: "São Luís/MA",
     cep: "65075-060",
-    whatsapp: "5598981384260",
+    whatsapp: "5598982113333",
   },
 ];
 

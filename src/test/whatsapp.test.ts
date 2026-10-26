@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { UNITS, COMPANY, whatsappUrl } from '@/lib/site-data';
 describe('WhatsApp routing', () => {
-  it.each([['São Francisco','5598982990055'],['Vila Palmeira','5598981427514'],['Renascença','5598981384260']])('uses the confirmed number for %s', (name, phone) => {
+  it.each([['São Francisco','5598982990055'],['Vila Palmeira','5598981427514'],['Renascença','5598982113333']])('uses the confirmed number for %s', (name, phone) => {
     const unit = UNITS.find(u => u.name === name);
     if (!unit) throw new Error('Missing unit');
     const url = new URL(whatsappUrl(unit, 'Primeira Habilitação'));
