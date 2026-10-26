@@ -63,15 +63,15 @@ function Hero() {
             Há 29 anos, preparando você para <span className="text-secondary">ir mais longe.</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg opacity-85 sm:text-xl">
-            Sua jornada ao volante merece experiência, estrutura e confiança. Na Autoescola Abdon, você encontra uma equipe preparada e diferentes opções de veículos para conquistar sua habilitação.
+            Da primeira habilitação às novas oportunidades profissionais, a Autoescola Abdon acompanha cada etapa da sua jornada. Conte com uma frota diversificada, equipe experiente e três unidades em São Luís.
           </p>
           <p className="mt-5 text-sm font-semibold text-secondary">29 anos de história | 3 unidades em São Luís | Categorias A, B, D e E</p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Button variant="cta" size="xl" onClick={() => open()}>
-              <MessageCircle /> Quero começar minha CNH
+              <MessageCircle /> Quero tirar minha CNH
             </Button>
             <Button variant="hero" size="xl" asChild>
-              <a href="#servicos">Conheça nossos serviços <ArrowRight /></a>
+              <a href="#servicos">Conhecer nossos serviços <ArrowRight /></a>
             </Button>
           </div>
         </div>
@@ -132,6 +132,7 @@ function Services() {
                   <Icon className="h-6 w-6" />
                 </span>
                 <h3 className={`mt-6 font-display font-bold ${idx === 0 ? "text-3xl lg:text-4xl" : "text-xl"}`}>{s.title}</h3>
+                <p className={`mt-2 font-semibold ${idx === 0 ? "text-secondary text-lg" : "text-foreground"}`}>{s.tagline}</p>
                 <p className={`mt-2 ${idx === 0 ? "opacity-85 text-lg" : "text-muted-foreground"}`}>{s.short}</p>
                 <span className={`mt-auto pt-6 inline-flex items-center gap-1 text-sm font-bold ${idx === 0 ? "text-secondary" : "text-primary"}`}>
                   Saiba mais <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
