@@ -14,6 +14,7 @@ import { Route as AlunosAprovadosRouteImport } from './routes/alunos-aprovados'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as ObrigadoRouteImport } from './routes/obrigado'
 import { Route as PoliticaDePrivacidadeRouteImport } from './routes/politica-de-privacidade'
+import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as UnidadesRouteImport } from './routes/unidades'
 import { Route as ServicosIndexRouteImport } from './routes/servicos.index'
@@ -44,6 +45,11 @@ const PoliticaDePrivacidadeRoute = PoliticaDePrivacidadeRouteImport.update({
   path: '/politica-de-privacidade',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacidadeRoute = PrivacidadeRouteImport.update({
+  id: '/privacidade',
+  path: '/privacidade',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',
   path: '/sobre',
@@ -71,6 +77,7 @@ export interface FileRoutesByFullPath {
   '/contato': typeof ContatoRoute
   '/obrigado': typeof ObrigadoRoute
   '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/sobre': typeof SobreRoute
   '/unidades': typeof UnidadesRoute
   '/servicos/$slug': typeof ServicosSlugRoute
@@ -82,6 +89,7 @@ export interface FileRoutesByTo {
   '/contato': typeof ContatoRoute
   '/obrigado': typeof ObrigadoRoute
   '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/sobre': typeof SobreRoute
   '/unidades': typeof UnidadesRoute
   '/servicos/$slug': typeof ServicosSlugRoute
@@ -94,6 +102,7 @@ export interface FileRoutesById {
   '/contato': typeof ContatoRoute
   '/obrigado': typeof ObrigadoRoute
   '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/sobre': typeof SobreRoute
   '/unidades': typeof UnidadesRoute
   '/servicos/$slug': typeof ServicosSlugRoute
@@ -107,6 +116,7 @@ export interface FileRouteTypes {
     | '/contato'
     | '/obrigado'
     | '/politica-de-privacidade'
+    | '/privacidade'
     | '/sobre'
     | '/unidades'
     | '/servicos/$slug'
@@ -118,6 +128,7 @@ export interface FileRouteTypes {
     | '/contato'
     | '/obrigado'
     | '/politica-de-privacidade'
+    | '/privacidade'
     | '/sobre'
     | '/unidades'
     | '/servicos/$slug'
@@ -129,6 +140,7 @@ export interface FileRouteTypes {
     | '/contato'
     | '/obrigado'
     | '/politica-de-privacidade'
+    | '/privacidade'
     | '/sobre'
     | '/unidades'
     | '/servicos/$slug'
@@ -141,6 +153,7 @@ export interface RootRouteChildren {
   ContatoRoute: typeof ContatoRoute
   ObrigadoRoute: typeof ObrigadoRoute
   PoliticaDePrivacidadeRoute: typeof PoliticaDePrivacidadeRoute
+  PrivacidadeRoute: typeof PrivacidadeRoute
   SobreRoute: typeof SobreRoute
   UnidadesRoute: typeof UnidadesRoute
   ServicosSlugRoute: typeof ServicosSlugRoute
@@ -184,6 +197,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PoliticaDePrivacidadeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacidade': {
+      id: '/privacidade'
+      path: '/privacidade'
+      fullPath: '/privacidade'
+      preLoaderRoute: typeof PrivacidadeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sobre': {
       id: '/sobre'
       path: '/sobre'
@@ -221,6 +241,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContatoRoute: ContatoRoute,
   ObrigadoRoute: ObrigadoRoute,
   PoliticaDePrivacidadeRoute: PoliticaDePrivacidadeRoute,
+  PrivacidadeRoute: PrivacidadeRoute,
   SobreRoute: SobreRoute,
   UnidadesRoute: UnidadesRoute,
   ServicosSlugRoute: ServicosSlugRoute,
