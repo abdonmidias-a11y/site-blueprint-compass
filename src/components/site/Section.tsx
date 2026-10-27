@@ -1,13 +1,13 @@
 import type { ReactNode } from "react";
 import { Clock } from "lucide-react";
 
-export function SectionHeading({ eyebrow, title, intro, light = false, center = false }: {
-  eyebrow: string; title: string; intro?: string; light?: boolean; center?: boolean;
+export function SectionHeading({ eyebrow, title, intro, light = false, center = false, as: H = "h2" }: {
+  as?: "h1" | "h2"; eyebrow: string; title: string; intro?: string; light?: boolean; center?: boolean;
 }) {
   return (
     <div className={`max-w-2xl ${center ? "mx-auto text-center" : ""}`}>
       <p className={`text-xs font-bold tracking-[0.2em] uppercase ${light ? "text-secondary" : "text-primary"}`}>{eyebrow}</p>
-      <h2 className="mt-3 font-display text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl">{title}</h2>
+      <H className="mt-3 font-display text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl">{title}</H>
       {intro && <p className={`mt-4 text-base sm:text-lg ${light ? "opacity-80" : "text-muted-foreground"}`}>{intro}</p>}
     </div>
   );

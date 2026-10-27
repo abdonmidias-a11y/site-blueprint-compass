@@ -3,10 +3,11 @@ import { ArrowRight, CheckCircle2, MapPin, MessageCircle, Navigation } from "luc
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "./Section";
 import { useUnitSelector } from "./UnitSelector";
-import { COMPANY, SERVICES, SERVICE_DETAILS, UNITS, unitLabel, formatPhone, mapsQuery, unitAddress, type Service } from "@/lib/site-data";
+import { COMPANY, SERVICES, SERVICE_DETAILS, UNITS, unitLabel, formatPhone, mapsQuery, unitAddress, whatsappUrl, type Service } from "@/lib/site-data";
 import { Faq } from "./Faq";
 import { LeadForm } from "./LeadForm";
 import { APPROVED_PHOTOS, PHOTOS, SERVICE_PHOTOS } from "@/lib/photos";
+import { trackWhatsApp } from "@/lib/tracking";
 import logo from "@/assets/logo-abdon.png.asset.json";
 
 export function ContactCta({ service, label = "Falar com a Abdon" }: { service?: string; label?: string }) {
@@ -15,7 +16,7 @@ export function ContactCta({ service, label = "Falar com a Abdon" }: { service?:
 }
 
 function PageIntro({ title, intro, eyebrow = "Autoescola Abdon", headline }: { title: string; intro: string; eyebrow?: string; headline?: string }) {
-  return <section className="bg-primary text-primary-foreground"><div className="container-site py-14 sm:py-20"><p className="mb-6 text-sm opacity-80"><Link to="/">Início</Link> / {title}</p><SectionHeading eyebrow={eyebrow} title={headline ?? title} intro={intro} light /></div></section>;
+  return <section className="bg-primary text-primary-foreground"><div className="container-site py-14 sm:py-20"><p className="mb-6 text-sm opacity-80"><Link to="/">Início</Link> / {title}</p><SectionHeading as="h1" eyebrow={eyebrow} title={headline ?? title} intro={intro} light /></div></section>;
 }
 
 export function ServiceDetail({ service }: { service: Service }) {
@@ -46,7 +47,7 @@ export function ServicesDirectory() {
 
 export function UnitsList() {
   const { open } = useUnitSelector();
-  return <div className="grid gap-6 lg:grid-cols-3">{UNITS.map((u) => <article key={u.id} className="flex min-w-0 flex-col overflow-hidden rounded-3xl border bg-card shadow-card"><iframe title={`Mapa da unidade ${u.name}`} src={`https://maps.google.com/maps?q=${mapsQuery(u)}&output=embed`} className="h-52 w-full border-0" loading="lazy" /><div className="flex flex-1 flex-col p-6"><h2 className="text-2xl font-bold">{unitLabel(u)}</h2><p className="mt-4 flex gap-2 text-sm leading-relaxed text-muted-foreground"><MapPin className="mt-1 h-4 w-4 shrink-0 text-primary" />{unitAddress(u)}</p><p className="mt-3 text-sm font-semibold">WhatsApp: {formatPhone(u.whatsapp)}</p><div className="mt-auto grid gap-3 pt-6"><Button variant="whatsapp" size="xl" onClick={() => open()}><MessageCircle /> Falar com esta unidade</Button><Button variant="outline" size="lg" className="rounded-full" asChild><a href={`https://www.google.com/maps/dir/?api=1&destination=${mapsQuery(u)}`} target="_blank" rel="noopener noreferrer"><Navigation /> Como chegar</a></Button></div></div></article>)}</div>;
+  return <div className="grid gap-6 lg:grid-cols-3">{UNITS.map((u) => <article key={u.id} className="flex min-w-0 flex-col overflow-hidden rounded-3xl border bg-card shadow-card"><iframe title={`Mapa da unidade ${u.name}`} src={`https://maps.google.com/maps?q=${mapsQuery(u)}&output=embed`} className="h-52 w-full border-0" loading="lazy" /><div className="flex flex-1 flex-col p-6"><h2 className="text-2xl font-bold">{unitLabel(u)}</h2><p className="mt-4 flex gap-2 text-sm leading-relaxed text-muted-foreground"><MapPin className="mt-1 h-4 w-4 shrink-0 text-primary" />{unitAddress(u)}</p><p className="mt-3 text-sm font-semibold">WhatsApp: {formatPhone(u.whatsapp)}</p><div className="mt-auto grid gap-3 pt-6"><Button variant="whatsapp" size="xl" asChild><a href={whatsappUrl(u)} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsApp(u.name, undefined, window.location.pathname)}><MessageCircle /> Falar com esta unidade</a></Button><Button variant="outline" size="lg" className="rounded-full" asChild><a href={`https://www.google.com/maps/dir/?api=1&destination=${mapsQuery(u)}`} target="_blank" rel="noopener noreferrer"><Navigation /> Como chegar</a></Button></div></div></article>)}</div>;
 }
 
 export function UnitsPage() {
