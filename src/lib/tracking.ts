@@ -71,3 +71,13 @@ export function initializeTracking() {
   script.src = `https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(id)}`;
   document.head.appendChild(script);
 }
+
+/** Confirmation page views are not new lead conversions. */
+let thankYouTracked = false;
+export function trackThankYouView() {
+  if (typeof window === "undefined" || thankYouTracked) return;
+  thankYouTracked = true;
+  let receipt: string | undefined;
+  try { receipt = sessionStorage.getItem("abdon_last_receipt") || undefined; } catch { /* optional context */ }
+  track("view_thank_you", { origem: "/obrigado", event_id: receipt, confirmado: receipt ? "sim" : "nao" });
+}
