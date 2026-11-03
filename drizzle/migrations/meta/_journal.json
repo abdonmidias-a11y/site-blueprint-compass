@@ -15,6 +15,13 @@
       "when": 1792690131864,
       "tag": "0001_secure_lead_submission",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1793750312106,
+      "tag": "0002_harden_lead_rpc_validation",
+      "breakpoints": true
     }
   ]
 }
