@@ -1,6 +1,8 @@
 import { createFileRoute, Link, useHydrated } from "@tanstack/react-router";
 import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useEffect } from "react";
+import { trackThankYouView } from "@/lib/tracking";
 
 export const Route = createFileRoute("/obrigado")({
   head: () => ({ meta: [
@@ -16,6 +18,7 @@ export const Route = createFileRoute("/obrigado")({
 
 function ThankYou() {
   const hydrated = useHydrated();
+  useEffect(() => { trackThankYouView(); }, []);
   let confirmed = false;
   if (hydrated) { try { confirmed = Boolean(sessionStorage.getItem("abdon_last_receipt")); } catch { /* no receipt */ } }
   return <section className="container-site min-h-[60vh] py-20 text-center">

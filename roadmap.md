@@ -1,5 +1,11 @@
 # Roadmap — Autoescola Abdon
 
+## Auditoria final (03/11/2026)
+- [ ] Conferir todas as páginas, textos, imagens e navegação em celular, tablet e computador
+- [ ] Corrigir falhas comprovadas de contato, segurança, rastreamento e SEO sem redesenhar
+- [ ] Testar formulários reais identificados, recibos, armazenamento privado e eventos
+- [ ] Entregar checklist final e bloqueios para domínio definitivo
+
 - [x] Aplicar copy final oficial em Home, serviços e páginas internas sem alterar design ou lógica
 - [x] Ocultar espaços sem material real e verificar textos, formulários e WhatsApp no celular
 - [ ] Receber fotos autorizadas e links sociais oficiais; confirmar cursos, FAQ com Detran-MA, dados de privacidade e métricas de avaliações antes da publicação definitiva
