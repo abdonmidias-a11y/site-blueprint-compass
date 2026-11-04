@@ -1,14 +1,18 @@
 # Roadmap — Autoescola Abdon
 
 ## Auditoria final (03/11/2026)
-- [ ] Conferir todas as páginas, textos, imagens e navegação em celular, tablet e computador
-- [ ] Corrigir falhas comprovadas de contato, segurança, rastreamento e SEO sem redesenhar
-- [ ] Testar formulários reais identificados, recibos, armazenamento privado e eventos
-- [ ] Entregar checklist final e bloqueios para domínio definitivo
+- [x] Conferir 15 páginas e redirecionamento /privacidade em larguras 360, 390, 768 e 1280; nenhuma falha de carregamento ou rolagem horizontal
+- [x] Corrigir links específicos de unidades, seleção rastreada, validação do envio público e sitemap; preservar design e URLs
+- [x] Testar envios reais Home, Contato e Adição; confirmar registros únicos, atribuição, /obrigado, erro sem perda de dados e bloqueio de leitura pública
+- [x] Entregar checklist final e bloqueios para domínio definitivo
+- [ ] Domínio definitivo: depende do nome e acesso do cliente; ajustar sitemap ao conectá-lo e conferir HTTPS após publicação
 
 - [x] Aplicar copy final oficial em Home, serviços e páginas internas sem alterar design ou lógica
 - [x] Ocultar espaços sem material real e verificar textos, formulários e WhatsApp no celular
-- [ ] Receber fotos autorizadas e links sociais oficiais; confirmar cursos, FAQ com Detran-MA, dados de privacidade e métricas de avaliações antes da publicação definitiva
+- [x] Receber e utilizar as nove fotos reais autorizadas
+- [ ] Confirmar cursos, FAQ com Detran-MA e dados de privacidade antes da publicação definitiva; depende da Abdon
+- [ ] Fotos específicas de unidades, Renascença, ônibus/carretas e links sociais: dependem de material oficial; não bloqueiam o contato atual
+- [ ] Avaliações incorporadas e métricas: dependem de fonte verificável; Home mantém apenas o botão oficial do Google
 
 - [x] Etapa 1: identidade visual, cabeçalho, barra de unidades, Home (14 seções), rodapé, seletor de unidades, WhatsApp flutuante
 - [x] Aprovação da Etapa 1 pelo cliente
